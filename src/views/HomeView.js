@@ -10,13 +10,12 @@ export default class HomeView extends Component {
   state = {
     trending: [],
     isLoading: false,
-    page: 1,
   };
 
   async componentDidMount() {
     this.setState({ isLoading: true });
     api
-      .getTrending(this.page)
+      .getTrending()
       .then(({ results }) =>
         this.setState({
           trending: results,
